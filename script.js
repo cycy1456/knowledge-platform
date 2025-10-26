@@ -1,88 +1,4 @@
-// 平滑滚动
-const smoothScroll = () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-};
-
-// 响应式导航菜单
-const responsiveNav = () => {
-    const navbar = document.querySelector('.navbar');
-    const navLinks = document.querySelector('.nav-links');
-    const menuButton = document.createElement('div');
-    
-    menuButton.className = 'menu-button';
-    menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-    navbar.querySelector('.container').appendChild(menuButton);
-    
-    menuButton.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuButton.innerHTML = navLinks.classList.contains('active')
-            ? '<i class="fas fa-times"></i>'
-            : '<i class="fas fa-bars"></i>';
-    });
-    
-    // 添加响应式样式
-    const style = document.createElement('style');
-    style.textContent = `
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-                transform: translateY(-150%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: -1;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .menu-button {
-                display: block;
-                font-size: 1.5rem;
-                color: var(--primary-color);
-                cursor: pointer;
-            }
-        }
-        
-        @media (min-width: 769px) {
-            .menu-button {
-                display: none;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-};
-
-// 滚动时导航栏样式变化
+// 滚动时导航栏样式变化 - 简化版
 const scrollNav = () => {
     const navbar = document.querySelector('.navbar');
     
@@ -99,58 +15,29 @@ const scrollNav = () => {
     });
 };
 
-// 搜索功能
-const searchFunctionality = () => {
-    const searchInput = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
-    
-    searchButton.addEventListener('click', () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        if (searchTerm) {
-            alert(`搜索: ${searchTerm}\n在实际项目中，这里会执行搜索逻辑`);
-            // 在实际项目中，这里可以添加搜索API调用或前端过滤逻辑
-        }
-    });
-    
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            searchButton.click();
-        }
-    });
-};
-
-// 订阅表单处理
-const subscribeForm = () => {
-    const form = document.querySelector('.subscribe-form');
-    
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = form.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
-            
-            if (email) {
-                alert(`感谢订阅！\n邮箱: ${email}\n在实际项目中，这里会发送订阅请求到服务器`);
-                form.reset();
-                // 在实际项目中，这里可以添加订阅API调用
-            }
-        });
-    }
-};
-
-// 分类卡片悬停动画
+// 分类卡片动画和点击事件
 const categoryAnimations = () => {
-    const cards = document.querySelectorAll('.category-card');
+    const categoryCards = document.querySelectorAll('.category-card');
     
-    cards.forEach(card => {
+    categoryCards.forEach(card => {
+        // 悬停动画
         card.addEventListener('mouseenter', () => {
-            const icon = card.querySelector('.category-icon');
-            icon.style.transform = 'scale(1.1) rotate(5deg)';
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
         });
         
         card.addEventListener('mouseleave', () => {
-            const icon = card.querySelector('.category-icon');
-            icon.style.transform = 'scale(1) rotate(0)';
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        });
+        
+        // 点击事件 - 使卡片可点击
+        card.addEventListener('click', () => {
+            // 获取卡片标题
+            const categoryName = card.querySelector('h3').textContent;
+            // 简单的点击效果 - 可以根据需求扩展
+            alert(`您点击了: ${categoryName}`);
+            // 可以添加更多交互逻辑，比如导航到相应页面等
         });
     });
 };
@@ -163,54 +50,120 @@ const imageLoadingAnimation = () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.5s ease';
-                
-                img.onload = () => {
-                    img.style.opacity = '1';
-                };
-                
-                if (img.complete) {
-                    img.style.opacity = '1';
-                }
-                
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
                 observer.unobserve(img);
             }
         });
     }, { threshold: 0.1 });
     
     images.forEach(img => {
+        img.style.opacity = '0';
+        img.style.transform = 'scale(0.9)';
+        img.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(img);
     });
 };
 
-// 返回顶部按钮
+// 平滑滚动函数
+function smoothScroll(target) {
+    const element = document.querySelector(target);
+    if (element) {
+        window.scrollTo({
+            top: element.offsetTop - 80, // 减去导航栏高度，避免被导航栏遮挡
+            behavior: 'smooth'
+        });
+    }
+}
+
+// 图片画廊展开/折叠功能
+// 图片画廊功能 - 实现互斥展开
+function initImageGallery() {
+    // 获取两个画廊的元素
+    const galleryPreviewLeft = document.getElementById('galleryPreviewLeft');
+    const galleryFullLeft = document.getElementById('galleryFullLeft');
+    const galleryPreviewRight = document.getElementById('galleryPreviewRight');
+    const galleryFullRight = document.getElementById('galleryFullRight');
+    
+    // 确保所有元素都存在
+    if (galleryPreviewLeft && galleryFullLeft && galleryPreviewRight && galleryFullRight) {
+        // 左侧画廊点击事件
+        galleryPreviewLeft.addEventListener('click', function(e) {
+            e.preventDefault();
+            // 展开左侧画廊
+            galleryFullLeft.classList.toggle('expanded');
+            // 关闭右侧画廊（如果展开）
+            galleryFullRight.classList.remove('expanded');
+        });
+        
+        // 右侧画廊点击事件
+        galleryPreviewRight.addEventListener('click', function(e) {
+            e.preventDefault();
+            // 展开右侧画廊
+            galleryFullRight.classList.toggle('expanded');
+            // 关闭左侧画廊（如果展开）
+            galleryFullLeft.classList.remove('expanded');
+        });
+    }
+}
+
+
+
+// 返回顶部按钮 - 创意设计
 const backToTopButton = () => {
     const button = document.createElement('button');
     button.className = 'back-to-top';
-    button.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    button.innerHTML = '&#8249;'; // 向上的小于号
     document.body.appendChild(button);
     
-    // 添加样式
     const style = document.createElement('style');
     style.textContent = `
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
+            bottom: 60px; /* 不是最右下角 */
+            right: 0; /* 贴着右边缘 */
+            width: 60px;
+            height: 70px;
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
+            /* 创意形状 - 圆角矩形但右侧无边框 */
+            border-radius: 15px 0 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             opacity: 0;
             visibility: hidden;
             z-index: 999;
+            font-size: 2.5rem;
+            font-weight: bold;
+            box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+            transform-origin: center;
+        }
+        
+        /* 创意动画效果 */
+        .back-to-top::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-bottom: 15px solid var(--primary-color);
+        }
+        
+        .back-to-top::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-top: 15px solid var(--primary-color);
         }
         
         .back-to-top.visible {
@@ -220,31 +173,67 @@ const backToTopButton = () => {
         
         .back-to-top:hover {
             background-color: var(--secondary-color);
-            transform: translateY(-5px);
+            transform: translateX(-10px) rotate(5deg);
+            animation: pulse 1.5s infinite;
+        }
+        
+        .back-to-top:hover::before {
+            border-bottom-color: var(--secondary-color);
+        }
+        
+        .back-to-top:hover::after {
+            border-top-color: var(--secondary-color);
+        }
+        
+        @keyframes pulse {
+            0% { transform: translateX(-5px) rotate(0deg); }
+            50% { transform: translateX(-10px) rotate(5deg); }
+            100% { transform: translateX(-5px) rotate(0deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 40px;
+                width: 50px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .back-to-top::before,
+            .back-to-top::after {
+                border-left-width: 12px;
+                border-bottom-width: 12px;
+                border-top-width: 12px;
+            }
         }
     `;
     document.head.appendChild(style);
     
-    // 显示/隐藏按钮
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
+        if (window.scrollY > 300) { // 滚动较少距离就显示
             button.classList.add('visible');
         } else {
             button.classList.remove('visible');
         }
     });
     
-    // 点击返回顶部
     button.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
+        
+        // 点击动画
+        button.style.transform = 'translateX(-20px) rotate(10deg) scale(1.1)';
+        setTimeout(() => {
+            button.style.transform = 'translateX(0) rotate(0) scale(1)';
+        }, 300);
     });
 };
 
 // 页面加载动画
 const pageLoadAnimation = () => {
+    // 添加页面加载样式
     const style = document.createElement('style');
     style.textContent = `
         .fade-in {
@@ -269,10 +258,10 @@ const pageLoadAnimation = () => {
     `;
     document.head.appendChild(style);
     
-    // 初始元素淡入
+    // 添加淡入动画
     document.body.classList.add('fade-in');
     
-    // 滚动显示部分
+    // 滚动时显示各个部分
     const sections = document.querySelectorAll('section');
     
     const observer = new IntersectionObserver((entries) => {
@@ -289,18 +278,81 @@ const pageLoadAnimation = () => {
     });
 };
 
+// 平滑滚动到分类部分
+const smoothScrollToCategories = () => {
+    const exploreBtn = document.getElementById('explore-btn');
+    const categoriesSection = document.getElementById('categories');
+    
+    if (exploreBtn && categoriesSection) {
+        exploreBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // 获取分类部分的位置
+            const categoriesPosition = categoriesSection.getBoundingClientRect().top + window.scrollY;
+            
+            // 添加渐变式平滑滚动
+            window.scrollTo({
+                top: categoriesPosition,
+                behavior: 'smooth'
+            });
+        });
+    }
+};
+
 // 初始化所有功能
 const init = () => {
-    smoothScroll();
-    responsiveNav();
     scrollNav();
-    searchFunctionality();
-    subscribeForm();
     categoryAnimations();
     imageLoadingAnimation();
     backToTopButton();
     pageLoadAnimation();
+    smoothScrollToCategories();
+    initImageGallery();
 };
 
 // 页面加载完成后初始化
 window.addEventListener('DOMContentLoaded', init);
+
+// 显示图片模态框函数
+function showImageModal(type) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    // 设置不同类型的图片
+    if (type === 'wechat') {
+        modalImage.src = 'images/wechat_qr.jpg';
+        modalImage.alt = '微信二维码';
+    } else if (type === 'qq') {
+        modalImage.src = 'images/qq_qr.jpg';
+        modalImage.alt = 'QQ二维码';
+    }
+    
+    // 显示模态框
+    modal.style.display = 'flex';
+    // 防止背景滚动
+    document.body.style.overflow = 'hidden';
+}
+
+// 关闭图片模态框函数
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    // 恢复背景滚动
+    document.body.style.overflow = 'auto';
+}
+
+// 点击模态框外部关闭模态框
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('imageModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// 按ESC键关闭模态框
+window.addEventListener('keydown', function(event) {
+    const modal = document.getElementById('imageModal');
+    if (event.key === 'Escape' && modal.style.display === 'flex') {
+        closeModal();
+    }
+});

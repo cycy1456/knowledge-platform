@@ -13,17 +13,7 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h1><i class="fas fa-lightbulb"></i> 知识中心</h1>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">首页</a></li>
-                    <li><a href="#categories">分类</a></li>
-                    <li><a href="#popular">热门</a></li>
-                    <li><a href="#about">关于</a></li>
-                </ul>
-                <div class="search-bar">
-                    <input type="text" placeholder="搜索知识...">
-                    <button><i class="fas fa-search"></i></button>
+                    <h1><i class="fas fa-lightbulb"></i> 知识中心<span class="author">by 朱沈楠 & 赵相宇</span></h1>
                 </div>
             </div>
         </nav>
@@ -33,11 +23,10 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2>探索知识的海洋</h2>
+                <h2>探索物理海洋</h2>
                 <p>汇聚各类学科知识，开启智慧之门</p>
                 <div class="cta-buttons">
-                    <a href="#categories" class="btn primary">浏览分类</a>
-                    <a href="#popular" class="btn secondary">热门内容</a>
+                    <a href="#categories" class="btn primary" id="explore-btn">这里有什么</a>
                 </div>
             </div>
         </div>
@@ -46,37 +35,246 @@
     <!-- 分类区域 -->
     <section id="categories" class="categories">
         <div class="container">
-            <h2 class="section-title">知识分类</h2>
+            <h2 class="section-title">小小分类</h2>
             <div class="category-grid">
-                <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-atom"></i></div>
-                    <h3>科学技术</h3>
-                    <p>探索科学原理与前沿技术发展</p>
+                <div class="category-card" onclick="smoothScroll('#tickets')">
+                    <div class="category-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <h3>出门票</h3>
+                    <p>我们学到了什么？</p>
                 </div>
-                <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-history"></i></div>
-                    <h3>历史文化</h3>
-                    <p>了解古今中外的历史事件与文化传承</p>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-brain"></i></div>
-                    <h3>心理学</h3>
-                    <p>探索人类心理与行为的奥秘</p>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-globe"></i></div>
-                    <h3>地理环境</h3>
-                    <p>认识地球的自然环境与人文地理</p>
-                </div>
-                <div class="category-card">
+                <div class="category-card" onclick="smoothScroll('#stories')">
                     <div class="category-icon"><i class="fas fa-book"></i></div>
-                    <h3>文学艺术</h3>
-                    <p>欣赏经典文学与艺术作品</p>
+                    <h3>故事会</h3>
+                    <p>我们想告诉你的</p>
                 </div>
-                <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-heartbeat"></i></div>
-                    <h3>健康生活</h3>
-                    <p>学习健康知识，培养良好生活习惯</p>
+                <div class="category-card" onclick="smoothScroll('#resources')">
+                    <div class="category-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>资料分享</h3>
+                    <p>多读书，把别人的变成自己的</p>
+                </div>
+                <div class="category-card" onclick="smoothScroll('#popular')">
+                    <div class="category-icon"><i class="fas fa-tools"></i></div>
+                    <h3>好用的工具</h3>
+                    <p>会使用工具，人类才出众于动物之群</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 出门票部分 -->
+    <section id="tickets" class="tickets-section">
+        <div class="container">
+            <h2 class="section-title">出门票</h2>
+            <div class="galleries-container">
+                <!-- 左侧画廊 - 朱沈楠 -->
+                <div class="gallery-wrapper">
+                    <div class="image-gallery-preview" id="galleryPreviewLeft">
+                        <div class="gallery-thumbnail">
+                                    <div class="simple-symbol">📝</div>
+                                    <div class="gallery-overlay">
+                                        <span>赵相宇</span>
+                                    </div>
+                                </div>
+                        <div class="gallery-full" id="galleryFullLeft">
+                            <div class="gallery-grid">
+                                <div class="gallery-item">
+                                    <p>了解了几个有利于学习的ai工具 学习了使用ai的"ABC"方法 了解了适用多项ai的重要性，要形成自己的一个工作流程 关于物理海洋研究的大致方向</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>1.知道了课本8章的大致内容，78尤为重要，地转和层化，以及从慕课学习 2.学会了用meta讲解课本内容，以及解决一些题目 3.AI工具只能起辅助作用，不能成为我们的知识外包，完全依赖AI将会是我们的大脑退化</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>1了解了书本前八章的大致内容，知道图片的重要性。 2搜索了有关海洋分层的一些知识，表面波内波区别，死水效应，双扩散现象 3数据处理的一些方式，网站。</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>学习了克氏力，地转平衡，埃克曼层，分析了两个重要的图</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>学习了行星涡度，相对涡度，位势涡度，位势平衡等，几个重要的图要去问大模型，下周一会的要求</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右侧画廊 - 赵相宇 -->
+                <div class="gallery-wrapper">
+                    <div class="image-gallery-preview" id="galleryPreviewRight">
+                        <div class="gallery-thumbnail">
+                                    <div class="simple-symbol">📊</div>
+                                    <div class="gallery-overlay">
+                                        <span>朱沈楠</span>
+                                    </div>
+                                </div>
+                        <div class="gallery-full" id="galleryFullRight">
+                            <div class="gallery-grid">
+                                <div class="gallery-item">
+                                    <p>涡度、位涡 β效应 Sverdrup平衡</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>获得了一个了解物理海洋的网站工具 明白用abc方法从ai获取知识 明白了agent以及代理形式管理Ai</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>1.认识到地转力可能在反常识现象中的作用 2.利用位温的概念与练习题训练与ai沟通的高效性 3.认识cabeling概念 4.安利TRAE、RAWGRAPH等工具</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>已get: 气候态·多年平均 coffee dubble diffusion the perpetual salt fountain 成果转化·技术落地 (跨学科) TAO项目数据 APDRC simple-local-rag 期待: 文献管理、分类助手</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <p>地转平衡 (压强梯度力≈科氏力) ekman上升流 ekman层 ekman convergence &divergence 地转流 近岸流 (复杂摩擦)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 故事会部分 -->
+    <section id="stories" class="stories-section">
+        <div class="container">
+            <h2 class="section-title">故事会</h2>
+            <div class="ocean-vortex-content">
+                <!-- 核心定义 -->
+                <div class="vortex-section definition-section">
+                    <h3 class="vortex-title">一、核心定义</h3>
+                    <div class="vortex-text">
+                        <p><strong>海洋涡旋</strong>是海洋中局部旋转的水体结构，尺度从几公里到几百公里，寿命从几天到数年不等，类似大气中的气旋/反气旋，是背景海流中"自转"的海水团。</p>
+                    </div>
+                </div>
+
+                <!-- 形成原因 -->
+                <div class="vortex-section causes-section">
+                    <h3 class="vortex-title">二、形成原因</h3>
+                    <div class="causes-grid">
+                        <div class="cause-item">
+                            <span class="cause-icon">🌊</span>
+                            <div class="cause-content">
+                                <h4>地转平衡破坏</h4>
+                                <p>海流受扰动打破原有平衡，形成旋转流体区。</p>
+                            </div>
+                        </div>
+                        <div class="cause-item">
+                            <span class="cause-icon">💨</span>
+                            <div class="cause-content">
+                                <h4>风应力变化</h4>
+                                <p>风场的空间差异引发海面环流，催生涡旋。</p>
+                            </div>
+                        </div>
+                        <div class="cause-item">
+                            <span class="cause-icon">🌪️</span>
+                            <div class="cause-content">
+                                <h4>海流不稳定性</h4>
+                                <p>黑潮、湾流等强流因剪切或弯曲不稳定，生成涡旋。</p>
+                            </div>
+                        </div>
+                        <div class="cause-item">
+                            <span class="cause-icon">🏔️</span>
+                            <div class="cause-content">
+                                <h4>地形影响</h4>
+                                <p>海流遇海山、峡谷等地形，受阻挡形成局部旋转。</p>
+                            </div>
+                        </div>
+                        <div class="cause-item">
+                            <span class="cause-icon">🌡️</span>
+                            <div class="cause-content">
+                                <h4>锋面不稳定</h4>
+                                <p>冷暖水团交汇的锋面处，因密度差生成涡旋。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 核心特点 -->
+                <div class="vortex-section features-section">
+                    <h3 class="vortex-title">三、核心特点</h3>
+                    <ul class="features-list">
+                        <li><strong>尺度</strong>：以10-300公里的中尺度为主，也有更小（1-10公里）或更大（&gt;500公里）的类型。</li>
+                        <li><strong>寿命</strong>：短则数天，长则数年（如某些环流衍生涡旋）。</li>
+                        <li><strong>旋向</strong>：北半球暖涡顺时针、冷涡逆时针；南半球相反（"北顺南逆"）。</li>
+                        <li><strong>温盐特征</strong>：暖涡中心温度、盐度偏高；冷涡中心偏低。</li>
+                        <li><strong>能量占比</strong>：<span class="highlight-data">承载全球海洋80%以上的中尺度动能</span>，是海洋能量的核心载体。</li>
+                    </ul>
+                </div>
+
+                <!-- 物理海洋学核心知识 -->
+                <div class="vortex-section physics-section">
+                    <h3 class="vortex-title">四、物理海洋学核心知识</h3>
+                    <div class="physics-cards">
+                        <div class="physics-card">
+                            <h4>地转流理论</h4>
+                            <div class="formula">
+                                <p>f v = 1/ρ ∂p/∂x</p>
+                                <p>f u = -1/ρ ∂p/∂y</p>
+                            </div>
+                            <p class="explanation">涡旋旋转与海水压力场倾斜直接相关，是平衡状态的体现。</p>
+                        </div>
+                        <div class="physics-card">
+                            <h4>位涡守恒</h4>
+                            <div class="formula">
+                                <p>(f + ζ)/H = 常数</p>
+                            </div>
+                            <p class="explanation">海水柱的旋转性与厚度变化绑定，是涡旋形成和演化的关键机制。</p>
+                        </div>
+                        <div class="physics-card">
+                            <h4>科里奥利力作用</h4>
+                            <p class="explanation">决定涡旋旋向与纬度的关系，是南北半球旋向差异的核心原因。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 科学意义与影响 -->
+                <div class="vortex-section significance-section">
+                    <h3 class="vortex-title">五、科学意义与影响</h3>
+                    <div class="significance-grid">
+                        <div class="significance-item">
+                            <span class="significance-icon">🌊</span>
+                            <p>主导海洋热量、盐度的横向传递</p>
+                        </div>
+                        <div class="significance-item">
+                            <span class="significance-icon">🐠</span>
+                            <p>冷涡引发上升流，促进浮游生物生长</p>
+                        </div>
+                        <div class="significance-item">
+                            <span class="significance-icon">🌤️</span>
+                            <p>调节海气热量交换，影响气候现象</p>
+                        </div>
+                        <div class="significance-item">
+                            <span class="significance-icon">⚓</span>
+                            <p>关乎航运安全、海洋工程选址及资源勘探</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 资料分享部分 -->
+    <section id="resources" class="resources-section">
+        <div class="container">
+            <h2 class="section-title">资料分享</h2>
+            <div class="resource-grid">
+                <!-- PDF文件资源 -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>描述性物理海洋学</h3>
+                        <a href="files/描述性物理海洋学.pdf" class="download-btn" download>下载PDF文件</a>
+                    </div>
+                </div>
+                
+                <!-- HTML文件资源 -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>我们所学到的</h3>
+                        <a href="files/ocean_visualization.html" class="view-btn" target="_blank">打开HTML文件</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,117 +283,189 @@
     <!-- 热门内容 -->
     <section id="popular" class="popular-section">
         <div class="container">
-            <h2 class="section-title">热门知识</h2>
-            <div class="article-grid">
-                <article class="article-card">
-                    <img src="https://picsum.photos/id/237/600/400" alt="人工智能的发展趋势">
-                    <div class="article-content">
-                        <h3>人工智能的发展趋势</h3>
-                        <p class="article-meta">发布于 2023-10-15 • 阅读量 12,534</p>
-                        <p>探索人工智能技术的最新发展方向，从机器学习到深度学习，了解AI如何改变我们的生活和工作方式。</p>
-                        <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+            <h2 class="section-title">好用的工具</h2>
+            
+            <!-- 数据获取分类 -->
+            <div class="tool-category">
+                <h3 class="category-title">数据获取</h3>
+                <div class="article-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #003366;">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>NCEI气候数据</h4>
+                        <p>全球海洋温度数据</p>
+                        <a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series/globe/ocean/ytd/12/1880-2018" target="_blank" class="tool-link">访问网站</a>
                     </div>
-                </article>
-                <article class="article-card">
-                    <img src="https://picsum.photos/id/1067/600/400" alt="健康饮食指南">
-                    <div class="article-content">
-                        <h3>科学饮食与健康生活</h3>
-                        <p class="article-meta">发布于 2023-09-28 • 阅读量 9,872</p>
-                        <p>了解不同食物的营养价值，掌握科学饮食原则，为您的健康生活奠定坚实基础。</p>
-                        <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #0066cc;">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h4>APDRC</h4>
+                        <p>亚太数据研究中心</p>
+                        <a href="https://apdrc.soest.hawaii.edu/" target="_blank" class="tool-link">访问网站</a>
                     </div>
-                </article>
-                <article class="article-card">
-                    <img src="https://picsum.photos/id/1047/600/400" alt="宇宙奥秘探索">
-                    <div class="article-content">
-                        <h3>宇宙的奥秘与探索</h3>
-                        <p class="article-meta">发布于 2023-08-12 • 阅读量 15,621</p>
-                        <p>从太阳系到银河系，从黑洞到暗物质，一起探索宇宙的无限奥秘和人类的探索历程。</p>
-                        <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #0099cc;">
+                            <i class="fas fa-temperature-high"></i>
+                        </div>
+                        <h4>气候概览</h4>
+                        <p>NCEI气候监测工具</p>
+                        <a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/" target="_blank" class="tool-link">访问网站</a>
                     </div>
-                </article>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #33ccff;">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>TBOX</h4>
+                        <p>海洋数据工具</p>
+                        <a href="https://www.tboxn.com/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 论文阅读分类 -->
+            <div class="tool-category">
+                <h3 class="category-title">论文阅读</h3>
+                <div class="article-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ff6600;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4>Springer</h4>
+                        <p>学术期刊平台</p>
+                        <a href="https://link.springer.com/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ff9900;">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4>Connected Papers</h4>
+                        <p>论文关系图谱</p>
+                        <a href="https://www.connectedpapers.com/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ffcc00;">
+                            <i class="fas fa-rabbit"></i>
+                        </div>
+                        <h4>Research Rabbit</h4>
+                        <p>研究发现助手</p>
+                        <a href="https://researchrabbitapp.com/home" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ffdd44;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Inciteful</h4>
+                        <p>引用分析工具</p>
+                        <a href="https://inciteful.xyz/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ffaa00;">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Elicit</h4>
+                        <p>AI论文研究助手</p>
+                        <a href="https://elicit.com/?redirected=true" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ff8800;">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Undermind</h4>
+                        <p>AI研究工具</p>
+                        <a href="https://www.undermind.ai/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #cc6600;">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Semantic Scholar</h4>
+                        <p>语义学术搜索引擎</p>
+                        <a href="https://www.semanticscholar.org/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #994400;">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h4>鸠摩搜索</h4>
+                        <p>图书搜索工具</p>
+                        <a href="https://www.jiumodiary.com/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #663300;">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>OATD</h4>
+                        <p>开放存取学位论文</p>
+                        <a href="https://oatd.org/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI分类 -->
+            <div class="tool-category">
+                <h3 class="category-title">AI</h3>
+                <div class="article-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ff3366;">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <h4>NotebookLM</h4>
+                        <p>Google智能笔记本</p>
+                        <a href="https://notebooklm.google/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon" style="background-color: #ff6699;">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>MetaSo</h4>
+                        <p>知识管理工具</p>
+                        <a href="https://metaso.cn/" target="_blank" class="tool-link">访问网站</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 关于我们 -->
-    <section id="about" class="about-section">
+    <!-- 关于我们部分已删除 -->
+
+    <!-- 优化后的底部区域 - 精简版联系信息 -->
+    <section class="contact-section">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">关于知识中心</h2>
-                    <p>知识中心致力于为广大用户提供高质量、易于理解的知识内容，涵盖科学、历史、文化、艺术、健康等多个领域。</p>
-                    <p>我们的使命是通过数字化手段，让知识传播更加便捷高效，帮助每个人拓宽视野，增长见识，提升自我。</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-weibo"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-weixin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3><i class="fas fa-lightbulb"></i> 知识中心</h3>
+                    <p>我们的所见所感所想</p>
                 </div>
-                <div class="about-image">
-                    <img src="https://picsum.photos/id/1025/600/400" alt="知识中心团队">
+                <div class="social-links">
+                    <a href="#" class="social-icon" onclick="showImageModal('wechat')"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="social-icon" onclick="showImageModal('qq')"><i class="fab fa-qq"></i></a>
+                    <a href="https://github.com/cycy1456?tab=repositories" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 订阅区域 -->
-    <section class="subscribe-section">
-        <div class="container">
-            <div class="subscribe-content">
-                <h2>订阅我们的知识库</h2>
-                <p>获取最新知识更新和精选内容推送</p>
-                <form class="subscribe-form">
-                    <input type="email" placeholder="请输入您的邮箱地址" required>
-                    <button type="submit" class="btn primary">立即订阅</button>
-                </form>
-            </div>
+    <!-- 图片模态框 -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="QR Code">
         </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2><i class="fas fa-lightbulb"></i> 知识中心</h2>
-                    <p>分享知识，连接智慧</p>
-                </div>
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="#home">首页</a></li>
-                        <li><a href="#categories">分类</a></li>
-                        <li><a href="#popular">热门</a></li>
-                        <li><a href="#about">关于</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>支持</h3>
-                    <ul>
-                        <li><a href="#">常见问题</a></li>
-                        <li><a href="#">联系我们</a></li>
-                        <li><a href="#">隐私政策</a></li>
-                        <li><a href="#">使用条款</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>联系我们</h3>
-                    <p><i class="fas fa-envelope"></i> contact@knowledge.com</p>
-                    <p><i class="fas fa-phone"></i> +86 123 4567 8910</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-weibo"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-weixin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 知识中心. 保留所有权利.</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
