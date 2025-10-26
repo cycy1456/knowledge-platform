@@ -1,2 +1,2 @@
 # knowledge-platform
-A homwork
+A homework
