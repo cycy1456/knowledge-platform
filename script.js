@@ -31,14 +31,9 @@ const categoryAnimations = () => {
             card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
         });
         
-        // 点击事件 - 使卡片可点击
-        card.addEventListener('click', () => {
-            // 获取卡片标题
-            const categoryName = card.querySelector('h3').textContent;
-            // 简单的点击效果 - 可以根据需求扩展
-            alert(`您点击了: ${categoryName}`);
-            // 可以添加更多交互逻辑，比如导航到相应页面等
-        });
+        // 点击事件 - 保持点击功能但移除alert提示
+        // 注意：卡片的滚动功能由onclick属性和smoothScroll函数处理
+        // 这里不添加额外的alert提示
     });
 };
 
